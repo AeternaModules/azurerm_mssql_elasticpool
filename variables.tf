@@ -31,7 +31,7 @@ EOT
     server_name                    = string
     enclave_type                   = optional(string)
     license_type                   = optional(string)
-    maintenance_configuration_name = optional(string, "SQL_Default")
+    maintenance_configuration_name = optional(string) # Default: "SQL_Default"
     max_size_bytes                 = optional(number)
     max_size_gb                    = optional(number)
     tags                           = optional(map(string))
