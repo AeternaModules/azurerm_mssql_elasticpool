@@ -1,3 +1,7 @@
+output "mssql_elasticpools_id" {
+  description = "Map of id values across all mssql_elasticpools, keyed the same as var.mssql_elasticpools"
+  value       = { for k, v in azurerm_mssql_elasticpool.mssql_elasticpools : k => v.id }
+}
 output "mssql_elasticpools_enclave_type" {
   description = "Map of enclave_type values across all mssql_elasticpools, keyed the same as var.mssql_elasticpools"
   value       = { for k, v in azurerm_mssql_elasticpool.mssql_elasticpools : k => v.enclave_type }
