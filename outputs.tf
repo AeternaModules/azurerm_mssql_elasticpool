@@ -36,7 +36,7 @@ output "mssql_elasticpools_name" {
 }
 output "mssql_elasticpools_per_database_settings" {
   description = "Map of per_database_settings values across all mssql_elasticpools, keyed the same as var.mssql_elasticpools"
-  value       = { for k, v in azurerm_mssql_elasticpool.mssql_elasticpools : k => v.per_database_settings if v.per_database_settings != null && length(v.per_database_settings) > 0 }
+  value       = { for k, v in azurerm_mssql_elasticpool.mssql_elasticpools : k => one(v.per_database_settings) if v.per_database_settings != null && length(v.per_database_settings) > 0 }
 }
 output "mssql_elasticpools_resource_group_name" {
   description = "Map of resource_group_name values across all mssql_elasticpools, keyed the same as var.mssql_elasticpools"
@@ -48,7 +48,7 @@ output "mssql_elasticpools_server_name" {
 }
 output "mssql_elasticpools_sku" {
   description = "Map of sku values across all mssql_elasticpools, keyed the same as var.mssql_elasticpools"
-  value       = { for k, v in azurerm_mssql_elasticpool.mssql_elasticpools : k => v.sku if v.sku != null && length(v.sku) > 0 }
+  value       = { for k, v in azurerm_mssql_elasticpool.mssql_elasticpools : k => one(v.sku) if v.sku != null && length(v.sku) > 0 }
 }
 output "mssql_elasticpools_tags" {
   description = "Map of tags values across all mssql_elasticpools, keyed the same as var.mssql_elasticpools"
